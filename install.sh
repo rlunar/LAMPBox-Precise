@@ -44,6 +44,19 @@ sudo sed -i "s/disable_functions = .*/disable_functions = /" /etc/php5/cli/php.i
 sudo sed -i "s/memory_limit = .*/memory_limit = 512M/" /etc/php5/cli/php.ini
 sudo sed -i "s/;date.timezone.*/date.timezone = America\/New_York/" /etc/php5/cli/php.ini
 
+# Installing APC
+sudo pecl install apc
+
+apc="extension = apc.so
+apc.shm_size = 64
+apc.stat = 0"
+echo "$apc" | sudo tee -a /etc/php5/apache2/php.ini
+
+# Install ApacheBench
+sudo apt-get install -y apache2-utils
+# Example:
+# ab -n 1000 -c 100 http://localhost/
+
 sudo service apache2 restart
 
 # Install MySQL
