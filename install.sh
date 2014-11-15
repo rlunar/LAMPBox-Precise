@@ -13,7 +13,7 @@ sudo add-apt-repository -y ppa:ondrej/php5-oldstable
 # sudo add-apt-repository -y ppa:ondrej/php5-5.6
 sudo apt-get update
 
-sudo apt-get install -y build-essential dkms re2c apache2 beanstalkd memcached postgresql libapache2-mod-php5 php5 php-pear php5-common php5-dev php5-apcu php5-curl php5-gd php5-json php5-memcached php5-mcrypt php5-mysql php5-mysqlnd php5-pgsql php5-readline php5-sqlite php5-xdebug libmcrypt4 redis-server
+sudo apt-get install -y build-essential dkms re2c apache2 beanstalkd memcached postgresql libapache2-mod-php5 php5 php-pear php5-common php5-dev php5-curl php5-gd php5-json php5-memcached php5-mcrypt php5-mysqlnd php5-pgsql php5-readline php5-sqlite php5-xdebug libmcrypt4 redis-server
 
 cat << EOF | sudo tee -a /etc/php5/mods-available/xdebug.ini
 xdebug.default_enable = 1
