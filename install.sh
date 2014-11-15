@@ -13,7 +13,7 @@ sudo add-apt-repository -y ppa:ondrej/php5-oldstable
 # sudo add-apt-repository -y ppa:ondrej/php5-5.6
 sudo apt-get update
 
-sudo apt-get install -y build-essential dkms re2c apache2 beanstalkd memcached postgresql libapache2-mod-php5 php5 php-pear php5-common php5-dev php5-curl php5-gd php5-json php5-memcached php5-mcrypt php5-mysqlnd php5-pgsql php5-readline php5-sqlite php5-xdebug libmcrypt4 redis-server
+sudo apt-get install -y build-essential dkms re2c apache2 beanstalkd memcached postgresql libapache2-mod-php5 php5 php-pear php5-common php5-dev php5-curl php5-gd php5-json php5-memcached php5-mcrypt php5-mysqlnd php5-pgsql php5-readline php5-xdebug libmcrypt4 redis-server
 
 cat << EOF | sudo tee -a /etc/php5/mods-available/xdebug.ini
 xdebug.default_enable = 1
@@ -28,6 +28,20 @@ xdebug.remote_handler = dbgp
 xdebug.remote_log = "/var/log/xdebug/xdebug.log"
 xdebug.remote_host=192.168.33.1
 EOF
+
+# Installing SQLite
+sudo apt-get install -y sqlite3 libsqlite3-dev
+sudo apt-get install -y php5-sqlite
+
+# Install CouchDB
+sudo apt-get install -y couchdb
+
+# Install
+sudo pecl install -f xhprof
+
+xhprof="extension=xhprof.so
+xhprof.output_dir=\"/var/tmp/xhprof\""
+echo "$xhprof" | sudo tee -a /etc/php5/apache2/php.ini
 
 # Set Apache ServerName
 sudo sed -i "s/#ServerRoot.*/ServerName VagrantBox/" /etc/apache2/apache2.conf
@@ -51,6 +65,9 @@ apc="extension = apc.so
 apc.shm_size = 64
 apc.stat = 0"
 echo "$apc" | sudo tee -a /etc/php5/apache2/php.ini
+
+# Installing Imagemagick
+sudo apt-get install -y imagemagick php5-imagick
 
 # Install ApacheBench
 sudo apt-get install -y apache2-utils
