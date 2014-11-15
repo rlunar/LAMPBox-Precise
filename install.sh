@@ -62,7 +62,19 @@ sudo mv composer.phar /usr/local/bin/composer
 
 # Install PHPUnit
 sudo pear config-set auto_discover 1
-sudo pear install pear.phpunit.de/phpunit
+wget https://phar.phpunit.de/phpunit.phar
+chmod +x phpunit.phar
+sudo mv phpunit.phar /usr/local/bin/phpunit
+
+# Install Copy/Paste Detector (CPD) for PHP code
+wget https://phar.phpunit.de/phpcpd.phar
+chmod +x phpcpd.phar
+sudo mv phpcpd.phar /usr/local/bin/phpcpd
+
+# Install PHPLOC - A tool for quickly measuring the size of a PHP project.
+wget https://phar.phpunit.de/phploc.phar
+chmod +x phploc.phar
+sudo mv phploc.phar /usr/local/bin/phploc
 
 # Configure & Start Beanstalkd Queue
 sudo sed -i "s/#START=yes/START=yes/" /etc/default/beanstalkd
