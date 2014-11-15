@@ -112,7 +112,7 @@ vhost="<VirtualHost *:80>
      <Directory \"/vagrant/PhpInfo\">
           Order allow,deny
           Allow from all
-          Require all granted
+          # Require all granted
           AllowOverride All
     </Directory>
 </VirtualHost>"
@@ -130,7 +130,7 @@ vhost="<VirtualHost *:80>
      <Directory \"/vagrant/Beansole/public\">
           Order allow,deny
           Allow from all
-          Require all granted
+          # Require all granted
           AllowOverride All
     </Directory>
 </VirtualHost>"
