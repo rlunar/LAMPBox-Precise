@@ -116,6 +116,7 @@ sudo npm install -g gulp
 # Build PHP Info Site
 mkdir /vagrant/PhpInfo
 echo "<?php phpinfo();" > /vagrant/PhpInfo/phpinfo.php
+cp /usr/share/php/apc.php /vagrant/PhpInfo/
 
 # Configure Apache Hosts
 echo "127.0.0.1  info.app" | sudo tee -a /etc/hosts
