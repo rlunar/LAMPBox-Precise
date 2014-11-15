@@ -17,6 +17,7 @@ sudo apt-get install -y build-essential dkms re2c apache2 beanstalkd memcached p
 
 cat << EOF | sudo tee -a /etc/php5/mods-available/xdebug.ini
 xdebug.default_enable = 1
+xdebug.idekey = "vagrant"
 xdebug.scream = 1
 xdebug.cli_color = 1
 xdebug.show_local_vars = 1
