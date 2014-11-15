@@ -86,10 +86,10 @@ sudo pip install fabric
 sudo pip install python-simple-hipchat
 
 # Install NodeJs
-apt-add-repository ppa:chris-lea/node.js
-apt-get update
-apt-get install nodejs
-apt-get install npm
+sudo apt-add-repository -y ppa:chris-lea/node.js
+sudo apt-get update
+sudo apt-get install -y nodejs
+sudo apt-get install -y npm
 
 # Install Grunt
 sudo npm install -g grunt-cli
@@ -101,10 +101,10 @@ sudo npm install -g forever
 sudo npm install -g gulp
 
 # Build PHP Info Site
+mkdir /vagrant/PhpInfo
 echo "<?php phpinfo();" > /vagrant/PhpInfo/phpinfo.php
 
 # Configure Apache Hosts
-sudo a2enmod rewrite
 echo "127.0.0.1  info.app" | sudo tee -a /etc/hosts
 vhost="<VirtualHost *:80>
      ServerName info.app
@@ -117,7 +117,7 @@ vhost="<VirtualHost *:80>
     </Directory>
 </VirtualHost>"
 echo "$vhost" | sudo tee /etc/apache2/sites-available/info.app.conf
-sudo a2ensite info.app
+sudo a2ensite info.app.conf
 sudo service apache2 restart
 
 # Install Beanstalkd Console
@@ -135,13 +135,8 @@ vhost="<VirtualHost *:80>
     </Directory>
 </VirtualHost>"
 echo "$vhost" | sudo tee /etc/apache2/sites-available/beansole.app.conf
-sudo a2ensite beansole.app
+sudo a2ensite beansole.app.conf
 sudo service apache2 restart
-
-# Install Nagios
-sudo apt-get install nagios3 nagios-nrpe-plugin
-# To add a user:
-sudo htpasswd /etc/nagios3/htpasswd.users rluna
 
 # Final Clean
 cd ~
