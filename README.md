@@ -1,5 +1,5 @@
 VagrantBox
 ==========
-alias lamp="curl -L -o 'install.sh' http://goo.gl/sJO27p && curl -L -o 'Vagrantfile' http://goo.gl/D35FG0 && vagrant up"
+alias lamp="curl -L -o 'install.sh' http://goo.gl/Upzqzm && curl -L -o 'Vagrantfile' http://goo.gl/XGO944 && vagrant up"
 
-curl -L -o 'phpmyadmin.sh' http://goo.gl/kqnth4 && curl -L -o 'vhost.sh' http://goo.gl/6xkB9G && curl -L -o 'install.sh' http://goo.gl/sJO27p && curl -L -o 'Vagrantfile' http://goo.gl/D35FG0
+curl -L -o 'phpmyadmin.sh' http://goo.gl/EW14n7 && curl -L -o 'vhost.sh' http://goo.gl/S0LYk0 && curl -L -o 'install.sh' http://goo.gl/Upzqzm && curl -L -o 'Vagrantfile' http://goo.gl/XGO944
